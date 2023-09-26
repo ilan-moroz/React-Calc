@@ -2,6 +2,7 @@ import Button from "../Button/Button";
 import buttons from "./buttonConfig";
 import classes from "./ButtonBox.module.css";
 import { SetStateAction } from "react";
+import { handleButtonClick } from "../../utils/handleButtonClick";
 
 type ButtonBoxProps = {
   setClickedValue: React.Dispatch<SetStateAction<string>>;
@@ -9,21 +10,7 @@ type ButtonBoxProps = {
 };
 
 const ButtonBox = (props: ButtonBoxProps) => {
-  const handleClick = (value: string) => {
-    if (value === "RESET") {
-      return () => {
-        props.setClickedValue("");
-      };
-    } else if (value === "DEL") {
-      return () => {
-        props.setClickedValue((prev: string) => prev.slice(0, -1));
-      };
-    } else {
-      return () => {
-        props.setClickedValue((prev: string) => prev + value);
-      };
-    }
-  };
+  const handleClick = handleButtonClick(props);
 
   const buttonsGrid = buttons.map(button => {
     const disabled =
