@@ -1,0 +1,34 @@
+.btnBox {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.btn-del-reset {
+  background-color: #e74c3c;
+}
+
+.btn-del-reset:hover {
+  background-color: #c0392b;
+}
+
+.btn-del-reset:active {
+  background-color: #a93226;
+}
+
+.btn-equals {
+  background-color: #1abc9c;
+}
+
+.btn-equals:hover {
+  background-color: #16a085;
+}
+
+.btn-equals:active {
+  background-color: #0e6655;
+}

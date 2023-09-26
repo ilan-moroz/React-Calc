@@ -1,0 +1,9 @@
+.calc {
+  background: #eee;
+  width: 25rem;
+  height: 33rem;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 0.75rem #eee);
+  border-radius: 1.5rem;
+  padding: 1rem;
+}
