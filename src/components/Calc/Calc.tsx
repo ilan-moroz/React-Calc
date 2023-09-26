@@ -5,11 +5,10 @@ import classes from "./Calc.module.css";
 
 const Calc = () => {
   const [clickedValue, setClickedValue] = useState<string>("");
-  console.log("🚀 ~ file: Calc.tsx:8 ~ Calc ~ clickedValue:", clickedValue);
 
   return (
     <div className={classes.calc}>
-      <Screen />
+      <Screen value={clickedValue} />
       <ButtonBox setClickedValue={setClickedValue} />
     </div>
   );
