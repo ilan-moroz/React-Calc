@@ -25,9 +25,17 @@ const buttons = [
   { value: "=", className: `${classes["span-2"]} ${classes["btn-equals"]}` },
 ];
 
-const ButtonBox = () => {
+type ButtonBoxProps = {
+  setClickedValue: (value: number | string) => void;
+};
+
+const ButtonBox = (props: ButtonBoxProps) => {
   const buttonsGrid = buttons.map(button => (
-    <Button key={button.value} className={button.className}>
+    <Button
+      onClick={() => props.setClickedValue(button.value)}
+      key={button.value}
+      className={button.className}
+    >
       {button.value}
     </Button>
   ));
