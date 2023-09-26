@@ -14,6 +14,10 @@ const ButtonBox = (props: ButtonBoxProps) => {
       return () => {
         props.setClickedValue("");
       };
+    } else if (value === "DEL") {
+      return () => {
+        props.setClickedValue((prev: string) => prev.slice(0, -1));
+      };
     } else {
       return () => {
         props.setClickedValue((prev: string) => prev + value);
