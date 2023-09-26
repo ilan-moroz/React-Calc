@@ -9,7 +9,10 @@ const Calc = () => {
   return (
     <div className={classes.calc}>
       <Screen value={clickedValue} />
-      <ButtonBox setClickedValue={setClickedValue} />
+      <ButtonBox
+        setClickedValue={setClickedValue}
+        clickedValue={clickedValue}
+      />
     </div>
   );
 };
