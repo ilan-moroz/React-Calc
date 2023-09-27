@@ -5,8 +5,12 @@ import { SetStateAction } from "react";
 import { handleButtonClick } from "../../utils/handleButtonClick";
 
 type ButtonBoxProps = {
-  setClickedValue: React.Dispatch<SetStateAction<string>>;
-  clickedValue: string;
+  setCurrentValue: React.Dispatch<SetStateAction<string>>;
+  currentValue: string;
+  previousValue: string;
+  setPreviousValue: React.Dispatch<SetStateAction<string>>;
+  operation: string | null;
+  setOperation: React.Dispatch<SetStateAction<string | null>>;
 };
 
 const ButtonBox = (props: ButtonBoxProps) => {
@@ -14,7 +18,7 @@ const ButtonBox = (props: ButtonBoxProps) => {
 
   const buttonsGrid = buttons.map(button => {
     const disabled =
-      typeof button.value === "number" && props.clickedValue.length > 8;
+      typeof button.value === "number" && props.currentValue.length > 8;
 
     return (
       <Button

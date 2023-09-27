@@ -4,14 +4,20 @@ import Screen from "../Screen/Screen";
 import classes from "./Calc.module.css";
 
 const Calc = () => {
-  const [clickedValue, setClickedValue] = useState<string>("");
+  const [currentValue, setCurrentValue] = useState<string>("");
+  const [previousValue, setPreviousValue] = useState<string>("");
+  const [operation, setOperation] = useState<string | null>(null);
 
   return (
     <div className={classes.calc}>
-      <Screen value={clickedValue} />
+      <Screen value={currentValue} />
       <ButtonBox
-        setClickedValue={setClickedValue}
-        clickedValue={clickedValue}
+        setCurrentValue={setCurrentValue}
+        currentValue={currentValue}
+        previousValue={previousValue}
+        setPreviousValue={setPreviousValue}
+        operation={operation}
+        setOperation={setOperation}
       />
     </div>
   );
