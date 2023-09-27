@@ -1,19 +1,10 @@
 import Button from "../Button/Button";
 import buttons from "./buttonConfig";
 import classes from "./ButtonBox.module.css";
-import { SetStateAction } from "react";
 import { handleButtonClick } from "../../utils/handleButtonClick";
+import { calcProps } from "../../types/calcProps";
 
-type ButtonBoxProps = {
-  setCurrentValue: React.Dispatch<SetStateAction<string>>;
-  currentValue: string;
-  previousValue: string;
-  setPreviousValue: React.Dispatch<SetStateAction<string>>;
-  operation: string | null;
-  setOperation: React.Dispatch<SetStateAction<string | null>>;
-};
-
-const ButtonBox = (props: ButtonBoxProps) => {
+const ButtonBox = (props: calcProps) => {
   const handleClick = handleButtonClick(props);
 
   const buttonsGrid = buttons.map(button => {
