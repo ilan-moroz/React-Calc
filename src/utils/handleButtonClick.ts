@@ -29,10 +29,15 @@ export const handleButtonClick =
     else if (["+", "-", "x", "/"].includes(value)) {
       return () => {
         // If there's an existing operation and a previous value
-        if (props.previousValue && props.operation) {
+        if (props.previousValue && props.operation && props.currentValue) {
           const result = compute(props); // Compute the result of previous operation.
           props.setCurrentValue(result); // Set the result as the current value.
           props.setPreviousValue(result); // Also store the result as the previous value.
+        } else if (!props.currentValue && props.operation) {
+          // If currentValue is empty (meaning an operator was just entered),
+          // and there's already an operation set, just replace the operation
+          props.setOperation(value);
+          return;
         } else {
           // If no existing operation, move the current value to previousValue for next operation.
           props.setPreviousValue(props.currentValue);
@@ -42,6 +47,7 @@ export const handleButtonClick =
         props.setOperation(value);
       };
     }
+
     // When equals button is clicked, perform the arithmetic operation.
     else if (value === "=") {
       return () => {
